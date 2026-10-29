@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alpha Zone Apparel | Custom Sportswear Manufacturer &amp; Exporter</title>
 <meta name="description" content="Custom team uniforms and sportswear manufactured by Alpha Zone Apparel. Worldwide shipping.">
+<meta property="og:type" content="website"><meta property="og:title" content="Alpha Zone Apparel | Custom Sportswear"><meta property="og:description" content="Custom team uniforms and sportswear. Any logo, any name. Worldwide shipping."><meta property="og:image" content="images/hero-1.jpg"><meta name="theme-color" content="#060a0b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -238,9 +239,33 @@ main:not([hidden]){animation:viewIn .5s ease both}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
 .wish.on{animation:pop .4s ease}
 .toast{transition:opacity .3s,transform .3s}
+
+#loader{position:fixed;inset:0;z-index:999;background:var(--bg);display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+#loader.off{opacity:0;visibility:hidden}#loader img{width:120px;animation:pop 1.2s ease infinite}
+#loader i{position:absolute;bottom:38%;width:120px;height:3px;background:var(--grad);transform-origin:left;animation:ld 1.4s ease infinite}
+@keyframes ld{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:998}
+body.sc header{box-shadow:0 8px 30px rgba(0,0,0,.45)}
+.pimg img{opacity:0}.pimg img.ld{opacity:1}.pimg img{transition:opacity .6s,transform .55s cubic-bezier(.2,.7,.2,1)}
+.mq{overflow:hidden;background:var(--grad);color:#02130d;padding:12px 0;white-space:nowrap}
+.mq div{display:inline-block;animation:mq 28s linear infinite}.mq:hover div{animation-play-state:paused}
+.mq span{font:800 20px var(--head);text-transform:uppercase;letter-spacing:2px;margin:0 26px}.mq span::after{content:"\2022";margin-left:52px;opacity:.5}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card:hover{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-4px)}
+.dz{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.dz input,.dz select{background:var(--bg);border:1px solid var(--line);color:inherit;padding:14px;font:inherit;border-radius:3px}.dz input:focus,.dz select:focus{outline:0;border-color:var(--neon)}
+.faq{display:grid;gap:10px;max-width:860px}.faq details{background:var(--p1);border:1px solid var(--line);padding:16px 20px;transition:border-color .2s}
+.faq details[open]{border-color:var(--neon)}.faq summary{cursor:pointer;font:700 22px var(--head);list-style:none}.faq summary::after{content:"+";float:right;color:var(--neon);transition:.3s}
+.faq details[open] summary::after{transform:rotate(45deg)}.faq p{color:var(--mut);margin-top:10px;animation:viewIn .4s both}
+#top{position:fixed;left:18px;bottom:22px;z-index:80;width:46px;height:46px;border-radius:50%;background:var(--grad);color:#02130d;font:900 22px var(--head);opacity:0;visibility:hidden;translate:0 14px;transition:.3s}
+#top.on{opacity:1;visibility:visible;translate:0 0}#top:active{transform:scale(.9)}
+#lb{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);display:grid;place-items:center;opacity:0;visibility:hidden;transition:.3s;cursor:zoom-out}
+#lb.on{opacity:1;visibility:visible}#lb img{max-width:94vw;max-height:92vh;transform:scale(.92);transition:.3s;background:#eef3f3}#lb.on img{transform:scale(1)}
+.modal .pimg img{cursor:zoom-in}
 </style>
 </head>
 <body>
+<div id="loader"><img src="images/logo.jpg" alt=""><i></i></div><div id="prog"></div>
 <div class="top">Your Vision, Our Custom, Global Reach. Worldwide Shipping.</div>
 
 <!-- ===== HEADER ===== -->
@@ -283,6 +308,7 @@ main:not([hidden]){animation:viewIn .5s ease both}
   <div class="sh"><h2>Shop By Category</h2><p>Open a category to see every style we make for it.</p></div>
   <div class="tiles" id="tiles"></div></div></section>
 
+<div class="mq"><div><span>Custom Logos</span><span>Any Name Any Number</span><span>Sublimation</span><span>Dry Fit</span><span>Team Orders</span><span>Worldwide Shipping</span><span>Custom Logos</span><span>Any Name Any Number</span><span>Sublimation</span><span>Dry Fit</span><span>Team Orders</span><span>Worldwide Shipping</span></div></div>
  <section style="background:var(--p1);border-block:1px solid var(--line)"><div class="wrap">
   <div class="sh"><h2>Trending Now</h2><a class="more" href="#/shop/all">View all products</a></div>
   <div class="grid" id="trend"></div></div></section>
@@ -313,6 +339,17 @@ main:not([hidden]){animation:viewIn .5s ease both}
    <div><b>Quality</b><span>Twice-reinforced seams</span></div><div><b>Global</b><span>Worldwide shipping</span></div></div>
  </div></section>
 
+
+ <section style="background:var(--p1);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sh"><h2>Design Your Team Kit</h2><p>Tell us about your team and we will reply on WhatsApp with a quote.</p></div>
+  <div class="dz"><input id="dzT" placeholder="Team name"><select id="dzS"><option>American Football</option><option>Basketball</option><option>Soccer</option><option>Baseball</option><option>Cheer</option><option>Other</option></select><input id="dzQ" type="number" min="1" placeholder="Quantity"><input id="dzC" placeholder="Colors (e.g. navy + gold)"><button class="btn" id="dzG" type="button">Send on WhatsApp</button></div>
+ </div></section>
+ <section><div class="wrap"><div class="sh"><h2>Questions</h2></div><div class="faq">
+  <details><summary>How do I order?</summary><p>Add products to the inquiry cart, choose sizes and send it on WhatsApp. We confirm pricing, quantities and your design there.</p></details>
+  <details><summary>Can I use my own logo, name and numbers?</summary><p>Yes. Any logo, any name, any number. Send your files and colors and we build the kit around them.</p></details>
+  <details><summary>Do you ship worldwide?</summary><p>Yes, we ship worldwide.</p></details>
+  <details><summary>Why does a product say "Price on request"?</summary><p>Those prices depend on your design and quantity. Message us on WhatsApp for a quote.</p></details>
+ </div></div></section>
  <div class="cta"><div class="wrap"><h2>Ready to outfit your team?</h2><a class="btn" href="https://wa.me/923327113173?text=Hello%20Alpha%20Zone%20Apparel%2C%20I%20want%20a%20custom%20quote." target="_blank" rel="noopener">Get a custom quote</a></div></div>
 </main>
 
@@ -365,7 +402,7 @@ main:not([hidden]){animation:viewIn .5s ease both}
 </aside>
 <div class="toast" id="toast"></div>
 
-<script>
+<script>(async function(){
 /* ===================== DATA ===================== */
 const WA_NUMBER="923327113173", SIZES=["S","M","L","XL","2XL","3XL","All Sizes"];
 const MATS=["Twice-reinforced seams","Comfortable fitting","100% knitted breathable polyester fabric","Moisture wicking"];
@@ -390,7 +427,7 @@ const CATS=[
  ["bags","Bags","acc"],
  ["gloves","Batting Gloves","acc"]
 ];
-const PRODUCTS=[
+let PRODUCTS=[
  {id:"AZ-FB-01",cat:"football",catName:"American Football",sub:"Sublimated Non-Padded Uniform",name:"Sublimated Non-Padded Uniform",price:36,img:"images/football-sublimated.jpg"},
  {id:"AZ-FB-02",cat:"football",catName:"American Football",sub:"Padded + Tackle Twill Uniform",name:"Padded + Tackle Twill Uniform",price:40,img:"images/football-padded.jpg"},
  {id:"AZ-FB-03",cat:"football",catName:"American Football",sub:"Flag Football Uniform",name:"Flag Football Uniform",price:null,img:"images/football-flag.jpg"},
@@ -413,7 +450,7 @@ const PRODUCTS=[
 const CATIMG={
  football:"images/cat-football.jpg",basketball:"images/cat-basketball.jpg",soccer:"images/cat-soccer.jpg",baseball:"images/cat-baseball.jpg",cheer:"images/cat-cheer.jpg",compression:"images/cat-compression.jpg",varsity:"images/cat-varsity.jpg",tracksuits:"images/cat-tracksuits.jpg",tshirts:"images/cat-tshirts.jpg",shorts:"images/cat-shorts.jpg",hoodies:"images/cat-hoodies.jpg",puffer:"images/cat-puffer.jpg",windbreaker:"images/cat-windbreaker.jpg",caps:"images/cat-caps.jpg",bags:"images/cat-bags.jpg",gloves:"images/cat-gloves.jpg"
 };
-const HERO=[
+let HERO=[
  {t:"American Football Uniforms",d:"Game-ready jerseys and pants, sublimated in your team colors.",c:"football",i:"images/hero-1.jpg",g:"#0d2a45,#06101a"},
  {t:"Basketball Uniforms",d:"Lightweight, breathable sets cut for fast movement.",c:"basketball",i:"images/hero-2.jpg",g:"#0d2a45,#06101a"},
  {t:"Soccer Uniforms",d:"Full custom kits: jersey, shorts and socks in your team colors.",c:"soccer",i:"images/cat-soccer.jpg",g:"#0d2a45,#06101a"},
@@ -421,6 +458,13 @@ const HERO=[
 ];
 const slug=s=>s.toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const catSubs=id=>[...new Set(PRODUCTS.filter(p=>p.cat===id).map(p=>p.sub))];
+/* products & hero slides come from data/*.json (edited via Pages CMS); built-in lists above are the fallback */
+try{const [a,b]=await Promise.all(["products","hero"].map(n=>fetch("data/"+n+".json",{cache:"no-cache"}).then(r=>r.json())));
+ const cn=Object.fromEntries(CATS.map(c=>[c[0],c[1]])),im=u=>String(u||"").replace(/^\/+/,"");
+ const P=(a.products||[]).filter(p=>p&&p.name&&p.cat).map(p=>({id:p.id||"p-"+p.name.toLowerCase().replace(/[^a-z0-9]+/g,"-"),cat:p.cat,catName:cn[p.cat]||p.cat,sub:p.name,name:p.name,price:(p.price===""||p.price==null)?null:Number(p.price),img:im(p.img)}));
+ if(P.length)PRODUCTS=P;
+ const H=(b.slides||[]).filter(x=>x&&x.title&&x.image).map(x=>({t:x.title,d:x.description||"",c:x.category||"all",i:im(x.image),g:"#0d2a45,#06101a"}));
+ if(H.length)HERO=H;}catch(e){console.warn("Using built-in product list",e);}
 PRODUCTS.forEach((p,i)=>{p.sku=p.id;p.h=150+i*4;p.first=true;});
 
 /* ===================== STATE & HELPERS ===================== */
@@ -435,7 +479,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 const gradient=h=>`linear-gradient(135deg,hsl(${h} 55% 20%),hsl(${h+15} 60% 7%))`;
 let tt;const toast=m=>{const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2000);};
 // Picture block: shows the real photo if it exists, otherwise a styled placeholder with the product name
-const pic=(p,w="")=>`<div class="pimg" style="--g:${gradient(p.h)}"><span>${esc(p.name)}</span><img src="${p.img}" alt="${esc(p.catName+" "+p.name)}" loading="lazy" onerror="this.remove()">${w}</div>`;
+const pic=(p,w="")=>`<div class="pimg" style="--g:${gradient(p.h)}"><span>${esc(p.name)}</span><img src="${p.img}" alt="${esc(p.catName+" "+p.name)}" loading="lazy" onload="this.classList.add('ld')" onerror="this.remove()">${w}</div>`;
 const I={eye:'<svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
  cart:'<svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12h11l2-8H6"/></svg>',
  heart:'<svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg>',
@@ -592,6 +636,26 @@ renderCart();router();
  watch();
  new MutationObserver(()=>watch()).observe(document.body,{childList:true,subtree:true});
 })();
+
+/* extras: loader, scroll progress, back-to-top, card tilt, lightbox, custom-kit form */
+(function(){
+ const L=document.getElementById("loader"),hide=()=>L.classList.add("off");addEventListener("load",()=>setTimeout(hide,350));setTimeout(hide,2500);
+ const P=document.getElementById("prog"),T=document.getElementById("top");
+ addEventListener("scroll",()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;P.style.width=(h>0?y/h*100:0)+"%";document.body.classList.toggle("sc",y>30);T.classList.toggle("on",y>600);},{passive:true});
+ T.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+ if(matchMedia("(hover:hover)").matches){
+  document.addEventListener("mousemove",e=>{const c=e.target.closest&&e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*8+"deg");c.style.setProperty("--rx",(.5-(e.clientY-r.top)/r.height)*8+"deg");});
+  document.addEventListener("mouseout",e=>{const c=e.target.closest&&e.target.closest(".card");if(c){c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg");}});}
+ const lb=document.getElementById("lb");
+ document.addEventListener("click",e=>{if(e.target.matches&&e.target.matches(".modal .pimg img")){lb.firstChild.src=e.target.src;lb.classList.add("on");}else if(lb.classList.contains("on"))lb.classList.remove("on");});
+ addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("on");});
+ setInterval(()=>document.querySelectorAll(".pimg img:not(.ld)").forEach(i=>i.complete&&i.naturalWidth&&i.classList.add("ld")),600);
+ document.getElementById("dzG").onclick=()=>{const v=id=>document.getElementById(id).value.trim();
+  const t="Hello Alpha Zone Apparel, I want a custom kit.\nTeam: "+(v("dzT")||"-")+"\nSport: "+v("dzS")+"\nQuantity: "+(v("dzQ")||"-")+"\nColors: "+(v("dzC")||"-");
+  window.open("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t),"_blank","noopener");};
+})();
+})();
 </script>
+<button id="top" aria-label="Back to top">&#8593;</button><div id="lb"><img alt=""></div>
 </body>
 </html>
