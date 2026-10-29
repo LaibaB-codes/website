@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alpha Zone Apparel | Custom Sportswear Manufacturer &amp; Exporter</title>
+<meta name="description" content="Custom team uniforms and sportswear manufactured by Alpha Zone Apparel. Worldwide shipping.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens ===== */
+:root{--bg:#060a0b;--p1:#0d1416;--p2:#141d20;--line:#1f2d31;--txt:#eaf4f2;--mut:#8aa0a3;--neon:#2bf5ae;--teal:#0fc3c8;
+--grad:linear-gradient(120deg,var(--neon),var(--teal));--head:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;--body:'Manrope',system-ui,sans-serif;--hh:76px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--txt);font:400 16px/1.65 var(--body);overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+.wrap{max-width:1280px;margin:auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--head);line-height:1;font-weight:800;text-transform:uppercase}
+svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+/* Slanted-cut button: the "alpha" signature shape */
+.btn{display:inline-block;background:var(--grad);color:#02130d;font:800 18px var(--head);letter-spacing:1px;text-transform:uppercase;padding:14px 38px;clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.12);transform:translateX(3px)}
+.btn.ghost{background:var(--p2);color:var(--txt)}
+.top{background:var(--grad);color:#02130d;text-align:center;font:700 13px/1 var(--body);padding:9px 12px}
+
+/* ===== Header + mega menu ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(6,10,11,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--hh);gap:18px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{height:52px;width:auto;max-width:168px;object-fit:contain;flex-shrink:0;border-radius:4px}
+.logo{font:900 26px var(--head);letter-spacing:2px;white-space:nowrap;text-transform:uppercase;line-height:1}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo small{display:block;font:700 11px/1.2 var(--body);letter-spacing:2.4px;color:var(--mut);text-transform:uppercase;margin-top:4px}
+nav>ul{display:flex;height:var(--hh)}
+nav>ul>li{display:flex;align-items:center}
+nav>ul>li>a{padding:0 20px;font:700 20px var(--head);text-transform:uppercase;letter-spacing:1px;color:#c3d1d2;height:100%;display:flex;align-items:center;transition:color .2s}
+nav>ul>li>a:hover{color:var(--neon)}
+.mega{display:none;position:absolute;left:0;right:0;top:100%;background:var(--p1);border-bottom:1px solid var(--line);padding:30px 0 34px}
+.has:hover .mega,.has:focus-within .mega,.has.open .mega{display:block}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.mega h4{font-size:22px;color:var(--neon);margin-bottom:12px}
+.mega li a{display:block;padding:5px 0;color:#c3d1d2;font-size:15px}
+.mega li a:hover{color:var(--neon);padding-left:6px;transition:.15s}
+.mega .shop-all{align-self:end}
+.icons{display:flex;gap:4px;align-items:center}
+.ibtn{position:relative;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;transition:.2s}
+.ibtn:hover{background:var(--p2);color:var(--neon)}
+.badge{position:absolute;top:3px;right:1px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--neon);color:#02130d;font:800 11px/18px var(--body);text-align:center}
+.burger{display:none}
+.sbar{display:none;border-top:1px solid var(--line);background:var(--p1);padding:14px 0 16px}
+.sbar.open{display:block}
+.sbar input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:4px;color:var(--txt);padding:14px 16px;font:inherit;font-size:16px}
+.sbar input:focus{border-color:var(--neon);outline:0}
+#sres{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:12px;max-height:55vh;overflow:auto}
+.sr{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:4px;background:var(--bg)}
+.sr:hover{border-color:var(--neon)}.sr .pimg{aspect-ratio:1;border-radius:3px}.sr .pimg span{display:none}
+.sr b{display:block;font:700 14px/1.2 var(--body)}.sr small{color:var(--mut)}
+.sall{grid-column:1/-1;text-align:center;color:var(--neon);font-weight:700;padding:8px}
+
+/* ===== Hero ===== */
+.hero{position:relative;height:min(84vh,720px);min-height:480px;overflow:hidden;background:var(--p1)}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s;display:flex;align-items:center}
+.slide.on{opacity:1;visibility:visible}
+.slide .bg{position:absolute;inset:0;background:var(--g)}
+.slide .bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.07);transition:transform 8s ease-out}
+.slide.on .bg img{transform:scale(1)}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,10,11,.95) 15%,rgba(6,10,11,.45) 60%,rgba(6,10,11,.15)),repeating-linear-gradient(115deg,transparent 0 46px,rgba(43,245,174,.05) 46px 48px)}
+.slide .txt{position:relative;z-index:2;max-width:760px}
+.slide h1{font-size:clamp(42px,8vw,120px);font-weight:900;transform:skewX(-8deg);transform-origin:left;margin-bottom:20px;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+.slide p{color:#cbd9da;max-width:440px;margin-bottom:30px;font-size:17px}
+.arrow{position:absolute;bottom:26px;z-index:5;width:48px;height:48px;border:1px solid #ffffff40;background:rgba(6,10,11,.6);display:grid;place-items:center;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.arrow:hover{background:var(--neon);color:#02130d}
+.prev{right:90px}.next{right:28px}
+.dots{position:absolute;bottom:42px;left:22px;z-index:5;display:flex;gap:8px}
+.dots button{width:44px;height:4px;background:#ffffff40}.dots button.on{background:var(--neon)}
+
+/* ===== Sections ===== */
+section{padding:84px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+.sh h2{font-size:clamp(40px,6vw,76px)}
+.sh p{color:var(--mut);max-width:400px}
+.sh a.more{font:700 18px var(--head);text-transform:uppercase;color:var(--neon);letter-spacing:1px}
+/* category tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.tile{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--g);display:flex;align-items:end;border:1px solid var(--line);transition:border-color .2s}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tile:hover img{transform:scale(1.06)}.tile:hover{border-color:var(--neon)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,10,11,.9),transparent 65%)}
+.tile div{position:relative;z-index:2;padding:16px 18px;width:100%;display:flex;justify-content:space-between;align-items:end}
+.tile h3{font-size:30px}.tile small{color:var(--neon);font-weight:700}
+/* product cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{background:var(--p1);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--neon);transform:translateY(-4px)}
+.pimg{position:relative;aspect-ratio:1;background:var(--g);display:grid;place-items:center;overflow:hidden}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#eef3f3}
+.pimg span{font:800 24px var(--head);text-transform:uppercase;text-align:center;padding:16px;color:#ffffffa8}
+.wish{position:absolute;top:10px;right:10px;z-index:2;width:36px;height:36px;border-radius:50%;background:rgba(6,10,11,.75);display:grid;place-items:center}
+.wish.on{color:var(--neon)}.wish.on svg{fill:currentColor}
+.pinfo{padding:16px;display:flex;flex-direction:column;gap:3px;flex:1}
+.pinfo small{color:var(--neon);font-weight:700;font-size:13px}
+.pinfo h3{font-size:25px;line-height:1.05}
+.sku{color:var(--mut);font-size:13px}
+.price{font:800 26px var(--head);margin-top:4px}
+.acts{display:flex;gap:8px;margin-top:auto;padding-top:12px}
+.acts button{flex:1;display:flex;justify-content:center;align-items:center;gap:7px;padding:10px 6px;border:1px solid var(--line);font:700 14px var(--body);transition:.2s}
+.acts button:hover{border-color:var(--neon);color:var(--neon)}
+.acts .add{background:var(--grad);color:#02130d;border-color:transparent}.acts .add:hover{color:#02130d;filter:brightness(1.1)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:60px 0}
+/* pillars + process */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
+.pillars div{padding:34px 28px;background:var(--p1)}.pillars div+div{border-left:1px solid var(--line)}
+.pillars h3{font-size:34px;color:var(--neon);margin-bottom:12px}.pillars p{color:#b9c9ca}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.steps div{counter-increment:s;padding:24px 20px;background:var(--p1);border-top:3px solid var(--neon)}
+.steps div::before{content:"0" counter(s);font:900 44px var(--head);color:var(--teal);display:block}
+.steps h4{font-size:24px;margin:6px 0}.steps p{color:var(--mut);font-size:15px}
+#about{background:var(--p1);border-block:1px solid var(--line)}
+.about{display:grid;grid-template-columns:1.25fr 1fr;gap:60px;align-items:center}
+.about h2{font-size:clamp(40px,6vw,76px);margin-bottom:22px}
+.about p{color:#c3d1d2;margin-bottom:16px}
+.about .tag{font:800 clamp(26px,3vw,36px) var(--head);color:var(--neon);text-transform:uppercase;line-height:1.1}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.facts div{background:var(--bg);border:1px solid var(--line);padding:22px}
+.facts b{display:block;font:900 38px var(--head);color:var(--neon);text-transform:uppercase}.facts span{color:var(--mut);font-size:14px}
+.cta{background:var(--grad);color:#02130d;padding:54px 0}
+.cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta h2{font-size:clamp(34px,5vw,60px)}.cta .btn{background:#02130d;color:var(--neon)}
+
+/* ===== Shop view ===== */
+#shopV{padding:30px 0 80px}
+.crumb{color:var(--mut);font-size:14px;margin-bottom:10px}.crumb a:hover{color:var(--neon)}
+.shead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.shead h1{font-size:clamp(44px,7vw,88px)}.shead p{color:var(--mut)}
+.shead select{background:var(--p1);border:1px solid var(--line);color:var(--txt);padding:10px 14px;font:inherit}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:34px}
+.side h4{font-size:20px;color:var(--neon);margin:18px 0 8px}.side h4:first-child{margin-top:0}
+.side a{display:flex;justify-content:space-between;padding:7px 10px;color:#c3d1d2;font-size:15px;border-left:2px solid var(--line)}
+.side a:hover{color:var(--neon)}.side a.on{border-color:var(--neon);color:var(--neon);background:var(--p1);font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chips a{padding:8px 16px;border:1px solid var(--line);font-weight:600;font-size:14px;background:var(--p1)}
+.chips a:hover{border-color:var(--neon)}.chips a.on{background:var(--neon);color:#02130d;border-color:var(--neon)}
+
+/* ===== Footer ===== */
+footer{padding:64px 0 24px;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
+footer h4{font-size:22px;margin-bottom:14px;color:var(--neon)}
+footer li{margin-bottom:8px}footer li a,footer p{color:var(--mut);font-size:15px}footer li a:hover{color:var(--neon)}
+.social{display:flex;gap:10px;margin-top:16px}
+.social a{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;transition:.2s}
+.social a:hover{background:var(--grad);color:#02130d;border-color:transparent}.social svg{width:19px}
+.copy{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;color:var(--mut);font-size:14px;text-align:center}
+
+/* ===== Modal / drawer ===== */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:90;opacity:0;visibility:hidden;transition:.25s}.ov.on{opacity:1;visibility:visible}
+.modal{position:fixed;z-index:100;top:50%;left:50%;transform:translate(-50%,-46%);width:min(940px,94vw);max-height:92vh;overflow:auto;background:var(--p1);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.1fr;opacity:0;visibility:hidden;transition:.25s}
+.modal.on{opacity:1;visibility:visible;transform:translate(-50%,-50%)}
+.modal>.pimg{aspect-ratio:auto;min-height:340px;height:100%}
+.mbody{padding:28px;display:flex;flex-direction:column;gap:14px}.mbody h3{font-size:40px}
+.x{position:absolute;top:12px;right:12px;z-index:5;width:38px;height:38px;border-radius:50%;background:var(--bg);display:grid;place-items:center}.x:hover{color:var(--neon)}
+.specs{display:grid;gap:5px;font-size:15px;color:#c3d1d2}.specs li::before{content:"\2713";color:var(--neon);margin-right:8px;font-weight:800}
+.lbl{font:700 20px var(--head);text-transform:uppercase;color:var(--mut);margin-bottom:6px;display:block}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.sizes button{min-width:50px;padding:8px 12px;border:1px solid var(--line);font-weight:700;white-space:nowrap}
+.sizes button.on{background:var(--neon);color:#02130d;border-color:var(--neon)}.sizes button:hover{border-color:var(--neon)}
+.field{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--txt);padding:11px 13px;font:inherit}
+.field:focus{border-color:var(--neon);outline:0}textarea.field{resize:vertical;min-height:66px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line)}
+.qty button{width:36px;height:36px;font-size:18px}.qty button:hover{color:var(--neon)}.qty span{min-width:36px;text-align:center;font-weight:700}
+.qrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.total{font:900 36px var(--head);color:var(--neon)}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--p1);border-left:1px solid var(--line);z-index:100;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}.dh h3{font-size:32px}
+.items{flex:1;overflow:auto;padding:12px 20px}
+.ci{display:grid;grid-template-columns:66px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.ci .pimg{aspect-ratio:1}.ci .pimg span{font-size:11px;padding:4px}
+.ci h4{font:700 15px/1.2 var(--body);text-transform:none}.ci small{display:block;color:var(--mut);font-size:13px;line-height:1.4}
+.ci .qty{margin-top:8px}.ci .qty button{width:28px;height:28px}
+.ci .rm{color:var(--mut)}.ci .rm:hover{color:#ff7b7b}.ci .lt{font-weight:700;color:var(--neon);text-align:right}
+.df{padding:18px 20px;border-top:1px solid var(--line);display:grid;gap:12px}
+.sub{display:flex;justify-content:space-between;font:800 28px var(--head)}.df small{color:var(--mut)}.df .btn{width:100%;text-align:center}
+.wa{position:fixed;right:20px;bottom:20px;z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;animation:pulse 2.4s infinite}
+.wa svg{width:30px;height:30px;fill:currentColor;stroke:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--neon);color:#02130d;font-weight:700;padding:10px 20px;z-index:120;opacity:0;pointer-events:none;transition:.3s}.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ===== Responsive ===== */
+@media(max-width:1000px){
+ .burger{display:grid}
+ nav{position:absolute;top:var(--hh);left:0;right:0;background:var(--p1);border-bottom:1px solid var(--line);display:none;max-height:75vh;overflow:auto}
+ nav.open{display:block}nav>ul{flex-direction:column;height:auto}
+ nav>ul>li{display:block}nav>ul>li>a{height:auto;padding:14px 22px;border-top:1px solid var(--line)}
+ .mega{position:static;border:0;padding:0 22px 14px}.has:hover .mega,.has:focus-within .mega{display:none}.has.open .mega{display:block}
+ .mgrid{grid-template-columns:1fr 1fr;gap:14px}
+ .about,.layout,.modal{grid-template-columns:1fr}.modal>.pimg{min-height:220px;height:220px}
+ .side{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}.side h4{display:none}.side a{white-space:nowrap;border:1px solid var(--line);gap:8px}
+ .fgrid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.pillars{grid-template-columns:1fr}.pillars div+div{border-left:0;border-top:1px solid var(--line)}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .brand img{height:44px;max-width:120px}.logo{font-size:22px}
+}
+@media(max-width:600px){
+ section{padding:56px 0}.fgrid{grid-template-columns:1fr}.mgrid{grid-template-columns:1fr}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tiles{grid-template-columns:repeat(2,1fr);gap:10px}.tile h3{font-size:20px}.tile small{display:none}
+ .pinfo{padding:10px}.pinfo h3{font-size:18px}.price{font-size:20px}.acts button span{display:none}
+ .arrow{display:none}.slide p{font-size:15px}.hero{min-height:420px;height:min(78vh,620px)}.steps{grid-template-columns:1fr}
+ .brand img{height:42px;max-width:150px}.brand .logo{display:none}#sres{grid-template-columns:1fr}
+ .slide h1{font-size:clamp(36px,12vw,64px)}
+}
+@media(max-width:420px){
+ .grid{grid-template-columns:1fr;gap:14px}.tiles{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.slide{cursor:pointer}
+
+/* ===== premium motion & polish ===== */
+.reveal{opacity:0;translate:0 30px;transition:opacity .75s ease,translate .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;translate:0 0}
+.card,.tile{transition:opacity .75s ease,translate .75s cubic-bezier(.2,.7,.2,1),transform .3s ease,border-color .25s,box-shadow .3s}
+.card:hover{box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 0 1px var(--neon),0 0 26px rgba(43,245,174,.18)}
+.pimg img{transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.card:hover .pimg img{transform:scale(1.08)}
+.grid .pimg{aspect-ratio:3/2}
+.tile:hover{box-shadow:0 16px 36px rgba(0,0,0,.5),0 0 22px rgba(43,245,174,.16)}
+.tile div{transition:padding .3s}.tile:hover div{padding-bottom:22px}
+.btn,.acts button,.ibtn,.arrow,.sizes button,.qty button,.social a{transition:transform .15s ease,filter .2s,background .2s,color .2s,border-color .2s,box-shadow .2s}
+.btn:hover{box-shadow:0 8px 24px rgba(43,245,174,.3)}
+.btn:active,.acts button:active,.ibtn:active,.arrow:active,.sizes button:active,.qty button:active,.social a:active{transform:scale(.94);filter:brightness(.92)}
+@keyframes heroIn{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
+.slide.on .txt>*{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) both}
+.slide.on .txt>*:nth-child(2){animation-delay:.2s}.slide.on .txt>*:nth-child(3){animation-delay:.4s}
+@keyframes viewIn{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}
+main:not([hidden]){animation:viewIn .5s ease both}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.wish.on{animation:pop .4s ease}
+.toast{transition:opacity .3s,transform .3s}
+</style>
+</head>
+<body>
+<div class="top">Your Vision, Our Custom, Global Reach. Worldwide Shipping.</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+ <div class="wrap nav">
+  <a href="#home" class="brand" aria-label="Alpha Zone Apparel">
+   <img src="images/logo.jpg" alt="Alpha Zone Apparel logo">
+   <span class="logo">Alpha Zone <b>Apparel</b><small>Custom Sportswear</small></span>
+  </a>
+  <nav id="menu" aria-label="Main">
+   <ul>
+    <li><a href="#home">Home</a></li>
+    <li class="has"><a href="#/shop/all" id="prodLink">Products</a>
+     <div class="mega"><div class="wrap mgrid" id="mega"></div></div></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+  <div class="icons">
+   <button class="ibtn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+   <a class="ibtn" href="#/wishlist" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg><span class="badge" id="wishCount">0</span></a>
+   <button class="ibtn" id="cartBtn" aria-label="Open cart"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12h11l2-8H6"/></svg><span class="badge" id="cartCount">0</span></button>
+   <button class="ibtn burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+ </div>
+ <div class="sbar" id="sbar"><div class="wrap">
+  <input id="sinput" type="search" placeholder="Search: football, basketball, soccer, baseball, hoodies, caps..." autocomplete="off" aria-label="Search products">
+  <div id="sres"></div>
+ </div></div>
+</header>
+
+<!-- ===== HOME VIEW ===== -->
+<main id="homeV">
+ <div class="hero" id="home"><div id="slides"></div>
+  <div class="dots" id="dots"></div>
+  <button class="arrow prev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="arrow next" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div>
+
+ <section><div class="wrap">
+  <div class="sh"><h2>Shop By Category</h2><p>Open a category to see every style we make for it.</p></div>
+  <div class="tiles" id="tiles"></div></div></section>
+
+ <section style="background:var(--p1);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sh"><h2>Trending Now</h2><a class="more" href="#/shop/all">View all products</a></div>
+  <div class="grid" id="trend"></div></div></section>
+
+ <section><div class="wrap">
+  <div class="sh"><h2>Built For Match Day</h2></div>
+  <div class="pillars">
+   <div><h3>Game-Ready Gear</h3><p>Moisture wicking fabrics, vibrant sublimated designs and reinforced stitching made for hard competition, from school teams to travel squads.</p></div>
+   <div><h3>Quality Guaranteed</h3><p>Every order is checked for fit, stitching and print quality before it leaves our factory, so your team gets what you approved.</p></div>
+   <div><h3>Made Your Way</h3><p>Send your team name, numbers, colors and logos. We build the full kit around your vision and ship it worldwide.</p></div>
+  </div></div></section>
+
+ <section style="padding-top:0"><div class="wrap">
+  <div class="sh"><h2>How Your Order Works</h2></div>
+  <div class="steps">
+   <div><h4>Send your idea</h4><p>Pick products, sizes and add your team details in the inquiry cart.</p></div>
+   <div><h4>Get a quote</h4><p>We confirm pricing, quantities and your design on WhatsApp.</p></div>
+   <div><h4>We manufacture</h4><p>Your kit is cut, sublimated and stitched to your specifications.</p></div>
+   <div><h4>Worldwide delivery</h4><p>Packed and shipped to your team, wherever you are.</p></div>
+  </div></div></section>
+
+ <section id="about"><div class="wrap about">
+  <div><h2>About Alpha Zone Apparel</h2>
+   <p>At Alpha Zone Apparel, We Manufacture: Custom American Football Uniforms, Basketball Uniforms, Soccer Uniforms, Baseball Uniforms, Cheer Uniforms, Varsity Jackets, Tracksuits, T-Shirts, Shorts, Compression Wear, Hoodies, Puffer &amp; Windbreaker Jackets, Caps, Bags, Gloves &amp; Team Accessories.</p>
+   <p class="tag">Your Vision, Our Custom, Global Reach. Worldwide Shipping.</p></div>
+  <div class="facts">
+   <div><b>Custom</b><span>Designs, names and numbers</span></div><div><b>Bulk</b><span>Team, club and school orders</span></div>
+   <div><b>Quality</b><span>Twice-reinforced seams</span></div><div><b>Global</b><span>Worldwide shipping</span></div></div>
+ </div></section>
+
+ <div class="cta"><div class="wrap"><h2>Ready to outfit your team?</h2><a class="btn" href="https://wa.me/923327113173?text=Hello%20Alpha%20Zone%20Apparel%2C%20I%20want%20a%20custom%20quote." target="_blank" rel="noopener">Get a custom quote</a></div></div>
+</main>
+
+<!-- ===== SHOP VIEW (category / search / wishlist results) ===== -->
+<main id="shopV" hidden><div class="wrap">
+ <div class="crumb" id="crumb"></div>
+ <div class="shead"><div><h1 id="stitle"></h1><p id="scount"></p></div>
+  <label><span class="sku">Sort&nbsp;</span><select id="sort"><option value="f">Featured</option><option value="a">Price: low to high</option><option value="d">Price: high to low</option></select></label></div>
+ <div class="layout"><aside class="side" id="side"></aside>
+  <div><div class="chips" id="chips"></div><div class="grid" id="grid"></div></div></div>
+</div></main>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contact"><div class="wrap">
+ <div class="fgrid">
+  <div><a href="#home" class="brand" aria-label="Alpha Zone Apparel">
+    <img src="images/logo.jpg" alt="Alpha Zone Apparel logo">
+    <span class="logo">Alpha Zone <b>Apparel</b></span>
+   </a>
+   <p style="margin-top:12px">Custom sportswear manufacturer and exporter. Your Vision, Our Custom, Global Reach.</p>
+   <div class="social">
+    <a href="https://www.facebook.com/alphazoneapparel" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5v4h3v7h4v-7h3l1-4h-4V7.5c0-.3.2-.5.5-.5H15z"/></svg></a>
+    <a href="https://www.instagram.com/alphazoneapparel" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+   </div></div>
+  <div><h4>Categories</h4><ul id="fcats"></ul></div>
+  <div><h4>Support</h4><ul>
+   <li><a href="#" id="fCart">Inquiry Cart</a></li>
+   <li><a href="https://wa.me/923327113173" target="_blank" rel="noopener">Custom Order Help</a></li>
+   <li><a href="#about">About Us</a></li>
+   <li><a href="https://wa.me/923327113173" target="_blank" rel="noopener">Shipping Info</a></li></ul></div>
+  <div><h4>Contact</h4>
+   <p>WhatsApp:<br><a href="https://wa.me/923327113173" target="_blank" rel="noopener" style="color:var(--neon)">+92 332 7113173</a></p>
+   <p style="margin-top:8px">Email:<br><a href="mailto:alphazoneapparel@gmail.com" style="color:var(--neon)">alphazoneapparel@gmail.com</a></p>
+   <p style="margin-top:8px">Facebook: ALPHA ZONE Apparel<br>Instagram: @alphazoneapparel</p></div>
+ </div>
+ <p class="copy">&copy; <span id="yr"></span> Alpha Zone Apparel. All rights reserved.</p>
+</div></footer>
+
+<a class="wa" href="https://wa.me/923327113173?text=Hello%20Alpha%20Zone%20Apparel%2C%20I%20have%20an%20inquiry." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+ <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg></a>
+
+<div class="ov" id="ov"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Product details"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+ <div class="dh"><h3>Inquiry Cart</h3><button class="ibtn" id="closeDrawer" aria-label="Close cart"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+ <div class="items" id="items"></div>
+ <div class="df"><div class="sub"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+  <small>Estimated price. Final quote is confirmed on WhatsApp after we review your design and quantity.</small>
+  <button class="btn" id="checkout">Send Inquiry on WhatsApp</button></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== DATA ===================== */
+const WA_NUMBER="923327113173", SIZES=["S","M","L","XL","2XL","3XL","All Sizes"];
+const MATS=["Twice-reinforced seams","Comfortable fitting","100% knitted breathable polyester fabric","Moisture wicking"];
+const GROUPS={team:"Team Uniforms",app:"Apparel",acc:"Accessories"};
+
+// Categories: [id, name, group]
+const CATS=[
+ ["football","American Football","team"],
+ ["basketball","Basketball","team"],
+ ["soccer","Soccer","team"],
+ ["baseball","Baseball","team"],
+ ["cheer","Cheer","team"],
+ ["compression","Compression Wear","team"],
+ ["varsity","Varsity Jackets","app"],
+ ["tracksuits","Tracksuits","app"],
+ ["tshirts","T-Shirts","app"],
+ ["shorts","Shorts","app"],
+ ["hoodies","Hoodies","app"],
+ ["puffer","Puffer Jackets","app"],
+ ["windbreaker","Windbreaker Jackets","app"],
+ ["caps","Caps","acc"],
+ ["bags","Bags","acc"],
+ ["gloves","Batting Gloves","acc"]
+];
+const PRODUCTS=[
+ {id:"AZ-FB-01",cat:"football",catName:"American Football",sub:"Sublimated Non-Padded Uniform",name:"Sublimated Non-Padded Uniform",price:36,img:"images/football-sublimated.jpg"},
+ {id:"AZ-FB-02",cat:"football",catName:"American Football",sub:"Padded + Tackle Twill Uniform",name:"Padded + Tackle Twill Uniform",price:40,img:"images/football-padded.jpg"},
+ {id:"AZ-FB-03",cat:"football",catName:"American Football",sub:"Flag Football Uniform",name:"Flag Football Uniform",price:null,img:"images/football-flag.jpg"},
+ {id:"AZ-BB-01",cat:"basketball",catName:"Basketball",sub:"Basketball Uniform",name:"Basketball Uniform",price:24,img:"images/cat-basketball.jpg"},
+ {id:"AZ-SC-01",cat:"soccer",catName:"Soccer",sub:"Soccer Uniform",name:"Soccer Uniform",price:20,img:"images/cat-soccer.jpg"},
+ {id:"AZ-BS-01",cat:"baseball",catName:"Baseball",sub:"Baseball Uniform",name:"Baseball Uniform",price:null,img:"images/cat-baseball.jpg"},
+ {id:"AZ-CH-01",cat:"cheer",catName:"Cheer",sub:"Cheer Uniform",name:"Cheer Uniform",price:25,img:"images/cat-cheer.jpg"},
+ {id:"AZ-CW-01",cat:"compression",catName:"Compression Wear",sub:"Compression Wear",name:"Compression Wear",price:24,img:"images/cat-compression.jpg"},
+ {id:"AZ-VJ-01",cat:"varsity",catName:"Varsity Jackets",sub:"Varsity Jacket",name:"Varsity Jacket",price:100,img:"images/cat-varsity.jpg"},
+ {id:"AZ-TK-01",cat:"tracksuits",catName:"Tracksuits",sub:"Sublimation Tracksuit",name:"Sublimation Tracksuit",price:35,img:"images/cat-tracksuits.jpg"},
+ {id:"AZ-TS-01",cat:"tshirts",catName:"T-Shirts",sub:"Performance T-Shirt",name:"Performance T-Shirt",price:14,img:"images/cat-tshirts.jpg"},
+ {id:"AZ-SH-01",cat:"shorts",catName:"Shorts",sub:"Sublimation Shorts",name:"Sublimation Shorts",price:10,img:"images/cat-shorts.jpg"},
+ {id:"AZ-HD-01",cat:"hoodies",catName:"Hoodies",sub:"Premium Hoodie",name:"Premium Hoodie",price:null,img:"images/cat-hoodies.jpg"},
+ {id:"AZ-PF-01",cat:"puffer",catName:"Puffer Jackets",sub:"Premium Puffer Jacket",name:"Premium Puffer Jacket",price:null,img:"images/cat-puffer.jpg"},
+ {id:"AZ-WB-01",cat:"windbreaker",catName:"Windbreaker Jackets",sub:"Windbreaker Jacket",name:"Windbreaker Jacket",price:null,img:"images/cat-windbreaker.jpg"},
+ {id:"AZ-CP-01",cat:"caps",catName:"Caps",sub:"Premium Cap",name:"Premium Cap",price:null,img:"images/cat-caps.jpg"},
+ {id:"AZ-BG-01",cat:"bags",catName:"Bags",sub:"Premium Bag",name:"Premium Bag",price:25,img:"images/cat-bags.jpg"},
+ {id:"AZ-GL-01",cat:"gloves",catName:"Batting Gloves",sub:"Custom Batting Gloves",name:"Custom Batting Gloves",price:12,img:"images/cat-gloves.jpg"}
+];
+const CATIMG={
+ football:"images/cat-football.jpg",basketball:"images/cat-basketball.jpg",soccer:"images/cat-soccer.jpg",baseball:"images/cat-baseball.jpg",cheer:"images/cat-cheer.jpg",compression:"images/cat-compression.jpg",varsity:"images/cat-varsity.jpg",tracksuits:"images/cat-tracksuits.jpg",tshirts:"images/cat-tshirts.jpg",shorts:"images/cat-shorts.jpg",hoodies:"images/cat-hoodies.jpg",puffer:"images/cat-puffer.jpg",windbreaker:"images/cat-windbreaker.jpg",caps:"images/cat-caps.jpg",bags:"images/cat-bags.jpg",gloves:"images/cat-gloves.jpg"
+};
+const HERO=[
+ {t:"American Football Uniforms",d:"Game-ready jerseys and pants, sublimated in your team colors.",c:"football",i:"images/hero-1.jpg",g:"#0d2a45,#06101a"},
+ {t:"Basketball Uniforms",d:"Lightweight, breathable sets cut for fast movement.",c:"basketball",i:"images/hero-2.jpg",g:"#0d2a45,#06101a"},
+ {t:"Soccer Uniforms",d:"Full custom kits: jersey, shorts and socks in your team colors.",c:"soccer",i:"images/cat-soccer.jpg",g:"#0d2a45,#06101a"},
+ {t:"Baseball Uniforms",d:"Full custom jerseys, pants and socks, any logo, any name.",c:"baseball",i:"images/cat-baseball.jpg",g:"#0d2a45,#06101a"}
+];
+const slug=s=>s.toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const catSubs=id=>[...new Set(PRODUCTS.filter(p=>p.cat===id).map(p=>p.sub))];
+PRODUCTS.forEach((p,i)=>{p.sku=p.id;p.h=150+i*4;p.first=true;});
+
+/* ===================== STATE & HELPERS ===================== */
+let cart=[],wish=[],sort="f";
+try{cart=JSON.parse(localStorage.getItem("az2_cart")||"[]");wish=JSON.parse(localStorage.getItem("az2_wish")||"[]");}catch(e){}
+const find=id=>PRODUCTS.find(p=>p.id===id);
+cart=cart.filter(c=>find(c.id));wish=wish.filter(find);
+const save=()=>{try{localStorage.setItem("az2_cart",JSON.stringify(cart));localStorage.setItem("az2_wish",JSON.stringify(wish));}catch(e){}};
+const $=id=>document.getElementById(id);
+const money=n=>n==null?"Price on request":"$"+n.toFixed(2);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const gradient=h=>`linear-gradient(135deg,hsl(${h} 55% 20%),hsl(${h+15} 60% 7%))`;
+let tt;const toast=m=>{const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2000);};
+// Picture block: shows the real photo if it exists, otherwise a styled placeholder with the product name
+const pic=(p,w="")=>`<div class="pimg" style="--g:${gradient(p.h)}"><span>${esc(p.name)}</span><img src="${p.img}" alt="${esc(p.catName+" "+p.name)}" loading="lazy" onerror="this.remove()">${w}</div>`;
+const I={eye:'<svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+ cart:'<svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12h11l2-8H6"/></svg>',
+ heart:'<svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg>',
+ x:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>'};
+const count=id=>PRODUCTS.filter(p=>p.cat===id).length;
+
+/* ===================== SEARCH LOGIC ===================== */
+// Every word must match category, sub-category or SKU. "uniforms" matches "uniform", "basket ball" matches "basketball".
+function match(q){
+ const t=q.toLowerCase().replace(/basket ball/g,"basketball").split(/\s+/).filter(Boolean).map(w=>w.length>3?w.replace(/s$/,""):w);
+ return PRODUCTS.filter(p=>{const h=(p.catName+" "+p.sub+" "+p.sku).toLowerCase();return t.every(w=>h.includes(w));});
+}
+
+/* ===================== CARDS ===================== */
+const card=p=>`<article class="card">${pic(p,`<button class="wish ${wish.includes(p.id)?"on":""}" data-w="${p.id}" aria-label="Wishlist">${I.heart}</button>`)}
+ <div class="pinfo"><small>${esc(p.catName)}</small><h3>${esc(p.name)}</h3><span class="sku">SKU: ${p.sku}</span><span class="price">${money(p.price)}</span>
+ <div class="acts"><button data-v="${p.id}" aria-label="Quick view">${I.eye}<span>Quick View</span></button>
+ <button class="add" data-a="${p.id}" aria-label="Add to cart">${I.cart}<span>Add</span></button></div></div></article>`;
+
+/* ===================== NAV / HOME BUILD ===================== */
+$("mega").innerHTML=Object.entries(GROUPS).map(([k,n])=>`<div><h4>${n}</h4><ul>${CATS.filter(c=>c[2]===k).map(c=>`<li><a href="#/shop/${c[0]}">${c[1]}</a></li>`).join("")}</ul></div>`).join("")+
+ `<div class="shop-all"><a class="btn" href="#/shop/all">Shop All</a></div>`;
+$("fcats").innerHTML=CATS.map(c=>`<li><a href="#/shop/${c[0]}">${c[1]}</a></li>`).join("")+`<li><a href="#/shop/all">All Products</a></li>`;
+$("tiles").innerHTML=CATS.map(c=>`<a class="tile" href="#/shop/${c[0]}" style="--g:${gradient(150+CATS.indexOf(c)*3)}"><img src="${CATIMG[c[0]]}" alt="${c[1]}" loading="lazy" onerror="this.remove()"><div><h3>${c[1]}</h3><small>${count(c[0])} style${count(c[0])===1?"":"s"}</small></div></a>`).join("");
+$("trend").innerHTML=PRODUCTS.map(card).join("");
+
+/* ===================== HERO SLIDER ===================== */
+let cur=0,timer;
+$("slides").innerHTML=HERO.map((s,i)=>{const [a,b]=s.g.split(",");return `<div class="slide ${i?"":"on"}" data-c="${s.c}"><div class="bg" style="--g:linear-gradient(120deg,${a},${b})"><img src="${s.i}" alt="${s.t}" onerror="this.remove()"></div>
+ <div class="wrap"><div class="txt"><h1>${s.t}</h1><p>${s.d}</p><a class="btn" href="#/shop/${s.c}">Explore Collection</a></div></div></div>`;}).join("");
+$("dots").innerHTML=HERO.map((_,i)=>`<button class="${i?"":"on"}" aria-label="Slide ${i+1}"></button>`).join("");
+document.querySelectorAll(".slide").forEach(el=>el.addEventListener("click",e=>{if(!e.target.closest("a"))location.hash="#/shop/"+el.dataset.c;}));
+function go(n){cur=(n+HERO.length)%HERO.length;document.querySelectorAll(".slide").forEach((s,i)=>s.classList.toggle("on",i===cur));document.querySelectorAll("#dots button").forEach((d,i)=>d.classList.toggle("on",i===cur));}
+const auto=()=>{clearInterval(timer);timer=setInterval(()=>go(cur+1),5500);};
+document.querySelector(".prev").onclick=()=>{go(cur-1);auto()};document.querySelector(".next").onclick=()=>{go(cur+1);auto()};
+document.querySelectorAll("#dots button").forEach((d,i)=>d.onclick=()=>{go(i);auto()});auto();
+
+/* ===================== ROUTER (hash based) =====================
+ #home | #about | #/shop/all | #/shop/<category>[/<sub-slug>] | #/search/<text> | #/wishlist */
+let route={};
+function router(){
+ const h=decodeURIComponent(location.hash);
+ if(h==="#contact")return; // footer is shared by both views
+ const m=h.match(/^#\/(shop|search|wishlist)\/?([^\/]*)\/?([^\/]*)/);
+ closeAll();$("menu").classList.remove("open");
+ if(!m){$("homeV").hidden=false;$("shopV").hidden=true;
+  if(h&&h!=="#home"&&$(h.slice(1)))$(h.slice(1)).scrollIntoView();else window.scrollTo({top:0,behavior:"instant"});return;}
+ route={type:m[1],a:m[2],b:m[3]};$("homeV").hidden=true;$("shopV").hidden=false;drawShop();window.scrollTo({top:0,behavior:"instant"});
+}
+function drawShop(){
+ const {type,a,b}=route;let list,title,crumb="<a href='#home'>Home</a> / <a href='#/shop/all'>Products</a>",chips="",cat=CATS.find(c=>c[0]===a);
+ if(type==="search"){list=match(a);title=`Results for "${esc(a)}"`;crumb+=" / Search";}
+ else if(type==="wishlist"){list=PRODUCTS.filter(p=>wish.includes(p.id));title="Your Wishlist";}
+ else if(cat){list=PRODUCTS.filter(p=>p.cat===a);title=cat[1];crumb+=` / ${cat[1]}`;
+  const subs=catSubs(a),sub=subs.find(s=>slug(s)===b);if(sub){list=list.filter(p=>p.sub===sub);crumb+=` / ${sub}`;}
+  chips=subs.length>1?`<a href="#/shop/${a}" class="${sub?"":"on"}">All ${cat[1]}</a>`+subs.map(s=>`<a href="#/shop/${a}/${slug(s)}" class="${s===sub?"on":""}">${s}</a>`).join(""):"";}
+ else{list=PRODUCTS.slice();title="All Products";}
+ if(sort==="a")list.sort((x,y)=>(x.price??1e9)-(y.price??1e9));if(sort==="d")list.sort((x,y)=>(y.price??-1)-(x.price??-1));
+ $("crumb").innerHTML=crumb;$("stitle").textContent=title.replace(/&quot;/g,'"');$("scount").textContent=`${list.length} product${list.length===1?"":"s"}`;
+ $("chips").innerHTML=chips;$("sort").value=sort;
+ $("side").innerHTML=`<a href="#/shop/all" class="${!cat&&type==="shop"?"on":""}">All Products <span>${PRODUCTS.length}</span></a>`+
+  Object.entries(GROUPS).map(([k,n])=>`<h4>${n}</h4>`+CATS.filter(c=>c[2]===k).map(c=>`<a href="#/shop/${c[0]}" class="${a===c[0]&&type==="shop"?"on":""}">${c[1]} <span>${count(c[0])}</span></a>`).join("")).join("");
+ $("grid").innerHTML=list.length?list.map(card).join(""):`<p class="empty">${type==="wishlist"?"Your wishlist is empty. Tap the heart on any product to save it.":"No products found. Try another word or browse a category on the left."}</p>`;
+ document.title=title.replace(/&quot;/g,'"')+" | Alpha Zone Apparel";
+}
+$("sort").onchange=e=>{sort=e.target.value;drawShop();};
+addEventListener("hashchange",router);
+
+/* ===================== LIVE SEARCH ===================== */
+$("searchBtn").onclick=()=>{const b=$("sbar");b.classList.toggle("open");if(b.classList.contains("open"))$("sinput").focus();};
+$("sinput").oninput=e=>{
+ const q=e.target.value.trim();if(!q){$("sres").innerHTML="";return;}
+ const r=match(q);
+ $("sres").innerHTML=r.length?r.slice(0,8).map(p=>`<a class="sr" href="#/shop/${p.cat}/${slug(p.sub)}">${pic(p)}<div><b>${esc(p.catName)} ${esc(p.name)}</b><small>${money(p.price)}</small></div></a>`).join("")+`<a class="sall" href="#/search/${encodeURIComponent(q)}">See all ${r.length} results</a>`:`<p class="empty" style="grid-column:1/-1;padding:20px">No products found for "${esc(q)}".</p>`;
+};
+$("sinput").onkeydown=e=>{if(e.key==="Enter"&&e.target.value.trim()){location.hash="#/search/"+encodeURIComponent(e.target.value.trim());$("sbar").classList.remove("open");}};
+$("sres").onclick=e=>{if(e.target.closest("a"))$("sbar").classList.remove("open");};
+
+/* ===================== CLICK HANDLERS ===================== */
+document.addEventListener("click",e=>{
+ const t=e.target.closest("[data-v],[data-a],[data-w]");if(!t)return;
+ if(t.dataset.a)addItem(t.dataset.a,"M",1,"","");
+ else if(t.dataset.v)openModal(t.dataset.v);
+ else if(t.dataset.w){const id=t.dataset.w;wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];save();counts();
+  document.querySelectorAll(`[data-w="${id}"]`).forEach(b=>b.classList.toggle("on",wish.includes(id)));toast(wish.includes(id)?"Added to wishlist":"Removed from wishlist");
+  if(route.type==="wishlist"&&!$("shopV").hidden)drawShop();}
+});
+$("prodLink").onclick=e=>{if(innerWidth<=1000){e.preventDefault();e.target.parentElement.classList.toggle("open");}};
+
+/* ===================== QUICK VIEW MODAL ===================== */
+let m={};
+function openModal(id){
+ m={p:find(id),size:"M",qty:1};const p=m.p;
+ $("modal").innerHTML=`<button class="x" id="mx" aria-label="Close">${I.x}</button>${pic(p)}
+ <div class="mbody"><div><span class="sku">${esc(p.catName)}</span><h3>${esc(p.name)}</h3><span class="sku">SKU: ${p.sku}</span> &nbsp; <b style="color:var(--neon)">${money(p.price)} / piece</b></div>
+ <ul class="specs">${MATS.map(s=>`<li>${s}</li>`).join("")}</ul>
+ <div><span class="lbl">Size</span><div class="sizes" id="sizes">${SIZES.map(s=>`<button class="${s===m.size?"on":""}" data-s="${s}">${s}</button>`).join("")}</div></div>
+ <div><label class="lbl" for="team">Custom Team Name</label><input class="field" id="team" maxlength="60" placeholder="e.g. Lahore Lions"></div>
+ <div><label class="lbl" for="notes">Player Number / Logo Customization Notes</label><textarea class="field" id="notes" maxlength="300" placeholder="e.g. Number 10 on back, logo on chest, navy and neon green"></textarea></div>
+ <div class="qrow"><div class="qty"><button id="qm" aria-label="Decrease">&minus;</button><span id="qv">1</span><button id="qp" aria-label="Increase">+</button></div><div class="total" id="mt">${money(p.price)}</div></div>
+ <button class="btn" id="addInq">Add to Inquiry</button></div>`;
+ $("modal").classList.add("on");$("ov").classList.add("on");
+ $("sizes").onclick=e=>{const b=e.target.closest("[data-s]");if(!b)return;m.size=b.dataset.s;[...$("sizes").children].forEach(x=>x.classList.toggle("on",x===b));};
+ const upd=()=>{$("qv").textContent=m.qty;$("mt").textContent=(p.price==null?"Quote":money(m.qty*p.price));};
+ $("qm").onclick=()=>{m.qty=Math.max(1,m.qty-1);upd();};$("qp").onclick=()=>{m.qty=Math.min(999,m.qty+1);upd();};
+ $("mx").onclick=closeAll;
+ $("addInq").onclick=()=>{addItem(p.id,m.size,m.qty,$("team").value.trim(),$("notes").value.trim());closeAll();openDrawer();};
+}
+
+/* ===================== CART / INQUIRY ===================== */
+function addItem(id,size,qty,team,notes){
+ const hit=cart.find(c=>c.id===id&&c.size===size&&c.team===team&&c.notes===notes);
+ if(hit)hit.qty+=qty;else cart.push({id,size,qty,team,notes});
+ save();renderCart();toast("Added to inquiry cart");
+}
+function counts(){$("cartCount").textContent=cart.reduce((a,c)=>a+c.qty,0);$("wishCount").textContent=wish.length;}
+const subtotal=()=>cart.reduce((a,c)=>a+c.qty*(find(c.id).price||0),0);
+function renderCart(){
+ $("items").innerHTML=cart.length?cart.map((c,i)=>{const p=find(c.id);return `<div class="ci">${pic(p)}
+  <div><h4>${esc(p.catName)} ${esc(p.name)}</h4><small>Size: ${c.size} &middot; ${money(p.price)} each</small>${c.team?`<small>Team: ${esc(c.team)}</small>`:""}${c.notes?`<small>Notes: ${esc(c.notes)}</small>`:""}
+  <div class="qty"><button data-c="${i}" data-d="-1" aria-label="Decrease">&minus;</button><span>${c.qty}</span><button data-c="${i}" data-d="1" aria-label="Increase">+</button></div></div>
+  <div><button class="rm" data-r="${i}" aria-label="Remove">${I.x}</button><div class="lt">${(p.price==null?"Quote":money(c.qty*p.price))}</div></div></div>`;}).join("")
+ :`<p class="empty">Your inquiry cart is empty.<br>Add products to build your custom order.</p>`;
+ $("subtotal").textContent=money(subtotal());counts();
+}
+$("items").onclick=e=>{const q=e.target.closest("[data-c]"),r=e.target.closest("[data-r]");
+ if(q){const c=cart[q.dataset.c];c.qty+=+q.dataset.d;if(c.qty<1)cart.splice(q.dataset.c,1);}else if(r)cart.splice(r.dataset.r,1);else return;save();renderCart();};
+// WhatsApp checkout: full list, sizes, team notes and total
+$("checkout").onclick=()=>{
+ if(!cart.length)return toast("Add at least one product first");
+ let s="*New Inquiry - Alpha Zone Apparel*\n\n";
+ cart.forEach((c,i)=>{const p=find(c.id);s+=`${i+1}. ${p.catName} - ${p.name} (SKU ${p.sku})\n   Size: ${c.size} | Qty: ${c.qty} | ${money(p.price)} each = ${(p.price==null?"Quote":money(c.qty*p.price))}\n`;
+  if(c.team)s+=`   Team Name: ${c.team}\n`;if(c.notes)s+=`   Custom Notes: ${c.notes}\n`;s+="\n";});
+ s+=`*Estimated Total: ${money(subtotal())}*\n\nPlease confirm availability, final quote and shipping.`;
+ window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(s)}`,"_blank","noopener");
+};
+
+/* ===================== OVERLAYS / INIT ===================== */
+function openDrawer(){$("drawer").classList.add("on");$("ov").classList.add("on");}
+function closeAll(){["drawer","modal"].forEach(i=>$(i).classList.remove("on"));$("ov").classList.remove("on");}
+$("cartBtn").onclick=openDrawer;$("fCart").onclick=e=>{e.preventDefault();openDrawer();};
+$("closeDrawer").onclick=closeAll;$("ov").onclick=closeAll;
+addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
+$("burger").onclick=()=>$("menu").classList.toggle("open");
+$("menu").onclick=e=>{const a=e.target.closest("a");if(a&&a.id!=="prodLink")$("menu").classList.remove("open");};
+$("yr").textContent=new Date().getFullYear();
+renderCart();router();
+/* scroll reveal: fade/slide elements in as they enter the screen */
+(function(){
+ const SEL=".tile,.card,.sh,.pillars>div,.steps>div,.cta .wrap>*";
+ if(!("IntersectionObserver" in window)){return;}
+ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);setTimeout(()=>{e.target.style.transitionDelay="";},1200);}});},{threshold:.08,rootMargin:"0px 0px -40px 0px"});
+ function watch(root){(root||document).querySelectorAll(SEL).forEach(el=>{if(el.dataset.rv)return;el.dataset.rv=1;el.classList.add("reveal");el.style.transitionDelay=((el.parentElement?[].indexOf.call(el.parentElement.children,el):0)%6)*70+"ms";io.observe(el);});}
+ watch();
+ new MutationObserver(()=>watch()).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+</body>
+</html>
